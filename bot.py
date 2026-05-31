@@ -11,7 +11,7 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 KOMIKSLAR = {
-    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAP6ahyE7lXh3Pm0J0UMNuvRd_ew114AAnmgAAK8XZFIZhsIIMA_b887BA",
+    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMDahyu-DCdt0ltbPvRFUC6N0rdyN4AAnmgAAK8XZFIGRyINLNUFr87BA",
 }
 
 async def obuna_tekshir(user_id: int) -> bool:
