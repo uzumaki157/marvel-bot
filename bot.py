@@ -106,7 +106,7 @@ async def komiks_yuborish(callback: types.CallbackQuery):
 
     if fayl_id:
 
-        await callback.message.answer_document(fayl_id, caption=f"📖 {nom}")
+       await callback.message.answer_document(fayl_id, caption=f"📖 {nom}", protect_content=True)
 
         await callback.answer()
 
