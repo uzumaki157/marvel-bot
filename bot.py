@@ -42,11 +42,6 @@ async def start(message: types.Message):
             "👋 Salom!\n\n📚 Marvel komikslarini o'zbek tilida o'qish uchun avval kanalimizga obuna bo'ling.\n\nObuna bo'lgach '✅ Obunani tekshirish' tugmasini bosing.",
             reply_markup=obuna_tugmasi()
         )
-
-@dp.message(F.document)
-async def fayl_id_olish(message: types.Message):
-    await message.answer(f"Fayl ID: {message.document.file_id}")
-
 @dp.callback_query(F.data == "tekshir")
 async def obuna_tekshirish(callback: types.CallbackQuery):
     if await obuna_tekshir(callback.from_user.id):
