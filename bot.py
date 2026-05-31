@@ -8,7 +8,7 @@ from aiogram.filters import CommandStart
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-TOKEN = os.getenv("8720341582:AAHyDdF2BnHsACPxLGipiVaTNTx-gm67aQM")
+TOKEN = os.getenv("BOT_TOKEN")
 
 KANAL = "@SpideyUz"
 
