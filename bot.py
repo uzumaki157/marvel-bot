@@ -18,7 +18,7 @@ dp = Dispatcher()
 
 KOMIKSLAR = {
 
-    "Spiderman 1": "BQACAgIAAxkBAAP6ahyE7lXh3Pm0J0UMNuvRd_ew114AAnmgAAK8XZFIZhsIIMA_b887BA",
+    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAP6ahyE7lXh3Pm0J0UMNuvRd_ew114AAnmgAAK8XZFIZhsIIMA_b887BA",
 
 }
 
