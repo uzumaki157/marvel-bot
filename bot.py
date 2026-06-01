@@ -11,7 +11,7 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 KOMIKSLAR = {
-    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAP6ahyE7lXh3Pm0J0UMNuvRd_ew114AAnmgAAK8XZFIZhsIIMA_b887BA",
+    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah1hYq3dVuQCHJzGDMt6_U__KCIAAnmgAAK8XZFIroPQ51XgH687BA",
     "O'rgimchak-odam va Supermen #1": None,
 }
 
@@ -60,9 +60,6 @@ async def obuna_tekshirish(callback: types.CallbackQuery):
 async def royxatga_qaytish(callback: types.CallbackQuery):
     await callback.message.answer("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=komiks_menyusi())
     await callback.answer()
-@dp.message(F.document)
-async def fayl_id_olish(message: types.Message):
-    await message.answer(f"Fayl ID: {message.document.file_id}")
 
 @dp.callback_query(F.data.startswith("komiks:"))
 async def komiks_yuborish(callback: types.CallbackQuery):
