@@ -5,7 +5,7 @@ from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 TOKEN = os.getenv("BOT_TOKEN")
-KANAL = "@SpideyUz"
+KANAL = "@iPageUz"
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
