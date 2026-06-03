@@ -11,7 +11,7 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 KOMIKSLAR = {
-    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah1hYq3dVuQCHJzGDMt6_U__KCIAAnmgAAK8XZFIroPQ51XgH687BA",
+    "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
     "O'rgimchak-odam va Supermen #1": None,
 }
 
