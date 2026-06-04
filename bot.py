@@ -53,7 +53,7 @@ def komiks_menyusi() -> InlineKeyboardMarkup:
 
 def obuna_tugmasi() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📢 Kanalga obuna bo'lish", url="https://t.me/SpideyUz")],
+        [InlineKeyboardButton(text="📢 Kanalga obuna bo'lish", url="https://t.me/iPageUz")],
         [InlineKeyboardButton(text="✅ Obunani tekshirish", callback_data="tekshir")]
     ])
 
