@@ -15,7 +15,7 @@ db_pool = None
 
 KOMIKSLAR = {
     "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
-    "O'rgimchak-odam va Supermen #1": None,
+    "O'rgimchak-odam va Supermen #1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
 }
 
 async def db_connect():
@@ -89,9 +89,6 @@ async def obuna_tekshirish(callback: types.CallbackQuery):
 async def royxatga_qaytish(callback: types.CallbackQuery):
     await callback.message.answer("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=komiks_menyusi())
     await callback.answer()
-@dp.message(F.document)
-async def fayl_id_olish(message: types.Message):
-    await message.answer(f"Fayl ID: {message.document.file_id}")
 
 @dp.callback_query(F.data.startswith("komiks:"))
 async def komiks_yuborish(callback: types.CallbackQuery):
