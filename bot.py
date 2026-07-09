@@ -16,7 +16,7 @@ db_pool = None
 KOMIKSLAR = {
     "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
     "O'rgimchak-odam va Supermen #1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
-    "DUM YILNOMALARI #1": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ","Isyonkor Quyosh #1": "BQACAgIAAxkBAAIEjGpAsNkXVZLkui6Cgv9l5SCeZGJiAAKtoQACI1cISvbC8qfwWwOGPAQ",
+    "DUM YILNOMALARI #1; #2": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ","Isyonkor Quyosh #1": "BQACAgIAAxkBAAIEjGpAsNkXVZLkui6Cgv9l5SCeZGJiAAKtoQACI1cISvbC8qfwWwOGPAQ",
 "Deadpool Marvel olamini o'ldiradi #1": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ"
 }
 
@@ -91,9 +91,6 @@ async def obuna_tekshirish(callback: types.CallbackQuery):
 async def royxatga_qaytish(callback: types.CallbackQuery):
     await callback.message.answer("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=komiks_menyusi())
     await callback.answer()
-@dp.message(F.document)
-async def fayl_id_olish(message: types.Message):
-    await message.answer(f"Fayl ID: {message.document.file_id}")
 @dp.callback_query(F.data.startswith("komiks:"))
 async def komiks_yuborish(callback: types.CallbackQuery):
     if not await obuna_tekshir(callback.from_user.id):
