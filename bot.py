@@ -22,6 +22,8 @@ KOMIKSLAR = {
 "Deadpool Marvel olamini o'ldiradi #1": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
 "Deadpool Marvel olamini o'ldiradi #2": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ"
 ,
+"Deadpool Marvel olamini o'ldiradi #3": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ"
+,
 "QORA QIROL #1": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ"}
 
 
@@ -96,9 +98,9 @@ async def obuna_tekshirish(callback: types.CallbackQuery):
 async def royxatga_qaytish(callback: types.CallbackQuery):
     await callback.message.answer("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=komiks_menyusi())
     await callback.answer()
-@dp.message(F.document)
-async def fayl_id_olish(message: types.Message):
-    await message.answer(f"Fayl ID: {message.document.file_id}")
+#@dp.message(F.document)
+#async def fayl_id_olish(message: types.Message):
+#    await message.answer(f"Fayl ID: {message.document.file_id}")
 @dp.callback_query(F.data.startswith("komiks:"))
 async def komiks_yuborish(callback: types.CallbackQuery):
     if not await obuna_tekshir(callback.from_user.id):
