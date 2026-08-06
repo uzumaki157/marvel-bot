@@ -155,7 +155,8 @@ async def qism_yuborish(callback: types.CallbackQuery):
         )
         await callback.answer()
     else:
-        await callback.message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True, reply_markup=qaytish_tugmasi())
+        await callback.message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
+        await callback.message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi())
         await callback.answer()
 
 @dp.message(F.document)
