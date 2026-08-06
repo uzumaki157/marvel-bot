@@ -2,12 +2,13 @@ import asyncio
 import os
 import asyncpg
 from aiogram import Bot, Dispatcher, types, F
-from aiogram.filters import CommandStart
+from aiogram.filters import CommandStart, Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 TOKEN = os.getenv("BOT_TOKEN")
 KANAL = "@iPageUz"
 DATABASE_URL = os.getenv("DATABASE_URL")
+ADMIN_ID = 1369800095
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -56,6 +57,9 @@ async def foydalanuvchi_saqlash(user_id: int, username: str):
 
 async def foydalanuvchilar_soni() -> int:
     return await db_pool.fetchval("SELECT COUNT(*) FROM users")
+
+async def barcha_foydalanuvchilar():
+    return await db_pool.fetch("SELECT user_id FROM users")
 
 async def obuna_tekshir(user_id: int) -> bool:
     try:
@@ -120,6 +124,25 @@ async def stats(message: types.Message):
     son = await foydalanuvchilar_soni()
     await message.answer(f"📊 Jami foydalanuvchilar: {son} ta")
 
+@dp.message(Command("broadcast"))
+async def broadcast(message: types.Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+    matn = message.text.replace("/broadcast", "").strip()
+    if not matn:
+        await message.answer("❌ Xabar matni kiriting.\nMisol: /broadcast Yangi komiks chiqdi!")
+        return
+    foydalanuvchilar = await barcha_foydalanuvchilar()
+    yuborildi = 0
+    xato = 0
+    for foydalanuvchi in foydalanuvchilar:
+        try:
+            await bot.send_message(foydalanuvchi["user_id"], matn)
+            yuborildi += 1
+        except:
+            xato += 1
+    await message.answer(f"✅ Yuborildi: {yuborildi} ta\n❌ Xato: {xato} ta")
+
 @dp.callback_query(F.data == "tekshir")
 async def obuna_tekshirish(callback: types.CallbackQuery):
     if await obuna_tekshir(callback.from_user.id):
@@ -164,7 +187,7 @@ async def qism_yuborish(callback: types.CallbackQuery):
 
 @dp.message(F.document)
 async def fayl_id_olish(message: types.Message):
-    if message.from_user.id == 1369800095:
+    if message.from_user.id == ADMIN_ID:
         await message.answer(f"Fayl ID: {message.document.file_id}")
 
 async def main():
