@@ -158,9 +158,10 @@ async def qism_yuborish(callback: types.CallbackQuery):
         await callback.message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True, reply_markup=qaytish_tugmasi())
         await callback.answer()
 
-#@dp.message(F.document)
-#async def fayl_id_olish(message: types.Message):
-#    await message.answer(f"Fayl ID: {message.document.file_id}")
+@dp.message(F.document)
+async def fayl_id_olish(message: types.Message):
+    if message.from_user.id == 1369800095:
+        await message.answer(f"Fayl ID: {message.document.file_id}")
 
 async def main():
     await db_connect()
