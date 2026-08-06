@@ -130,7 +130,10 @@ async def obuna_tekshirish(callback: types.CallbackQuery):
 @dp.callback_query(F.data.startswith("sahifa:"))
 async def sahifa_almashtirish(callback: types.CallbackQuery):
     sahifa = int(callback.data.split("sahifa:")[1])
-    await callback.message.edit_text("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(sahifa))
+    try:
+        await callback.message.edit_text("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(sahifa))
+    except:
+        await callback.message.answer("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(sahifa))
     await callback.answer()
 
 @dp.callback_query(F.data.startswith("seriya:"))
