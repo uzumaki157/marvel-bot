@@ -30,11 +30,11 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
         "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
         "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
-        "4-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
+        "4-qism": "BQACAgIAAxkBAAIQump0hoU8dWR0ivuufxz05kd--M01AALOpwACBbahS-MoQAcfcPxyPQQ",
     },
     "Qora Qirol": {
         "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
-"2-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
+"2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
 
     },
 }
