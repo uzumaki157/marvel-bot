@@ -22,18 +22,20 @@ KOMIKSLAR = {
         "#1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
     },
     "Dum Yilnomalari": {
-        "#1": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
-        "#2": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
-        "#3": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
+        "1-qism": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
+        "2-qism": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
+        "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
     },
     "Deadpool Marvel olamini o'ldiradi": {
-        "#1": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
-        "#2": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
-        "#3": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
-        "#4": "BQACAgIAAxkBAAIQump0hoU8dWR0ivuufxz05kd--M01AALOpwACBbahS-MoQAcfcPxyPQQ",
+        "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
+        "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
+        "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
+        "4-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
     },
     "Qora Qirol": {
-        "#1": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
+        "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
+"2-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
+
     },
 }
 
