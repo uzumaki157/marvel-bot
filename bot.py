@@ -34,14 +34,20 @@ KOMIKSLAR = {
     },
     "Qora Qirol": {
         "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
-"2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
-
+        "2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
     },
-   "Fuqarolar Urushi": {"1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
+    "Fuqarolar Urushi": {
+        "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
 }
 
 SAHIFA_HAJMI = 5
+
+def seriya_sahifasini_topish(seriya_nomi: str) -> int:
+    seriyalar = list(KOMIKSLAR.keys())
+    if seriya_nomi in seriyalar:
+        return seriyalar.index(seriya_nomi) // SAHIFA_HAJMI
+    return 0
 
 async def db_connect():
     global db_pool
@@ -81,7 +87,7 @@ def seriya_menyusi(sahifa: int = 0) -> InlineKeyboardMarkup:
 
     tugmalar = []
     for nom in sahifadagi:
-        tugmalar.append([InlineKeyboardButton(text=f"{nom}", callback_data=f"seriya:{nom}")])
+        tugmalar.append([InlineKeyboardButton(text=f"{nom}", callback_data=f"seriya:{nom}:{sahifa}")])
 
     navigatsiya = []
     if sahifa > 0:
@@ -93,13 +99,13 @@ def seriya_menyusi(sahifa: int = 0) -> InlineKeyboardMarkup:
 
     return InlineKeyboardMarkup(inline_keyboard=tugmalar)
 
-def qismlar_menyusi(seriya_nomi: str) -> InlineKeyboardMarkup:
+def qismlar_menyusi(seriya_nomi: str, sahifa: int) -> InlineKeyboardMarkup:
     qismlar = KOMIKSLAR.get(seriya_nomi, {})
     tugmalar = []
     for qism, fayl_id in qismlar.items():
         matn = f"✅ {qism}" if fayl_id else f"⏳ {qism}"
-        tugmalar.append([InlineKeyboardButton(text=matn, callback_data=f"qism:{seriya_nomi}|{qism}")])
-    tugmalar.append([InlineKeyboardButton(text="🔙 Orqaga", callback_data="sahifa:0")])
+        tugmalar.append([InlineKeyboardButton(text=matn, callback_data=f"qism:{seriya_nomi}|{qism}|{sahifa}")])
+    tugmalar.append([InlineKeyboardButton(text="🔙 Orqaga", callback_data=f"sahifa:{sahifa}")])
     return InlineKeyboardMarkup(inline_keyboard=tugmalar)
 
 def obuna_tugmasi() -> InlineKeyboardMarkup:
@@ -108,9 +114,9 @@ def obuna_tugmasi() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="✅ Obunani tekshirish", callback_data="tekshir")]
     ])
 
-def qaytish_tugmasi() -> InlineKeyboardMarkup:
+def qaytish_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data="sahifa:0")]
+        [InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"sahifa:{sahifa}")]
     ])
 
 @dp.message(CommandStart())
@@ -166,8 +172,10 @@ async def sahifa_almashtirish(callback: types.CallbackQuery):
 
 @dp.callback_query(F.data.startswith("seriya:"))
 async def seriya_tanlash(callback: types.CallbackQuery):
-    seriya_nomi = callback.data.split("seriya:")[1]
-    await callback.message.edit_text(f"📖 *{seriya_nomi}* — qismni tanlang:", parse_mode="Markdown", reply_markup=qismlar_menyusi(seriya_nomi))
+    parts = callback.data.split("seriya:")[1].rsplit(":", 1)
+    seriya_nomi = parts[0]
+    sahifa = int(parts[1]) if len(parts) > 1 else 0
+    await callback.message.edit_text(f"📖 *{seriya_nomi}* — qismni tanlang:", parse_mode="Markdown", reply_markup=qismlar_menyusi(seriya_nomi, sahifa))
     await callback.answer()
 
 @dp.callback_query(F.data.startswith("qism:"))
@@ -176,18 +184,21 @@ async def qism_yuborish(callback: types.CallbackQuery):
         await callback.answer("❌ Avval kanalga obuna bo'ling!", show_alert=True)
         return
     data = callback.data.split("qism:")[1]
-    seriya_nomi, qism = data.split("|", 1)
+    parts = data.rsplit("|", 1)
+    seriya_qism = parts[0]
+    sahifa = int(parts[1]) if len(parts) > 1 else 0
+    seriya_nomi, qism = seriya_qism.split("|", 1)
     fayl_id = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
     if fayl_id is None:
         await callback.message.answer(
             f"⏳ *{seriya_nomi} {qism}* hali tarjima qilinmoqda.\n\nTez orada tayyor bo'ladi!",
             parse_mode="Markdown",
-            reply_markup=qaytish_tugmasi()
+            reply_markup=qaytish_tugmasi(sahifa)
         )
         await callback.answer()
     else:
         await callback.message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
-        await callback.message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi())
+        await callback.message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi(sahifa))
         await callback.answer()
 
 @dp.message(F.document)
