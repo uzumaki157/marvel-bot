@@ -37,6 +37,8 @@ KOMIKSLAR = {
 "2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
 
     },
+   "Fuqarolar Urushi": {"1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
+    },
 }
 
 SAHIFA_HAJMI = 5
