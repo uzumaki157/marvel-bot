@@ -81,13 +81,13 @@ def seriya_menyusi(sahifa: int = 0) -> InlineKeyboardMarkup:
 
     tugmalar = []
     for nom in sahifadagi:
-        tugmalar.append([InlineKeyboardButton(text=f"📖 {nom}", callback_data=f"seriya:{nom}")])
+        tugmalar.append([InlineKeyboardButton(text=f"{nom}", callback_data=f"seriya:{nom}")])
 
     navigatsiya = []
     if sahifa > 0:
-        navigatsiya.append(InlineKeyboardButton(text="⬅️ Oldingi", callback_data=f"sahifa:{sahifa-1}"))
+        navigatsiya.append(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"sahifa:{sahifa-1}"))
     if tugash < len(seriyalar):
-        navigatsiya.append(InlineKeyboardButton(text="Keyingi ➡️", callback_data=f"sahifa:{sahifa+1}"))
+        navigatsiya.append(InlineKeyboardButton(text="Keyingisi ➡️", callback_data=f"sahifa:{sahifa+1}"))
     if navigatsiya:
         tugmalar.append(navigatsiya)
 
