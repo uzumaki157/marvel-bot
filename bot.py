@@ -35,6 +35,7 @@ KOMIKSLAR = {
     "Qora Qirol": {
         "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
         "2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
+"3-qism": "BQACAgIAAxkBAAIYqWqCikOjIEqn4ZtH-G1E6bPYgj1jAALapwAC6FMJSH98bnsa4YrnPQQ",
     },
     "Fuqarolar Urushi": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
