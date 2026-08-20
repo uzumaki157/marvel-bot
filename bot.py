@@ -40,6 +40,10 @@ KOMIKSLAR = {
     "Fuqarolar Urushi": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
+ "Qasoskorlar : Parchalanish": {
+        "1-qism": "BQACAgIAAxkBAAIaMWqGuCeAr7zdOTFttZkmmW7I9RA2AAJLsQACcpQxSJ26hAm6E1vzPQQ",
+    },
+
 }
 
 SAHIFA_HAJMI = 5
