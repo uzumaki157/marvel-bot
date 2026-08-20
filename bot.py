@@ -41,7 +41,7 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
  "Qasoskorlar : Parchalanish": {
-        "1-qism": "BQACAgIAAxkBAAIaMWqGuCeAr7zdOTFttZkmmW7I9RA2AAJLsQACcpQxSJ26hAm6E1vzPQQ",
+        "1-qism": "BQACAgIAAxkBAAIaq2qG-_vVZTcQqQWT5sa7vIYXdcLPAAJgpwAC-1M4SGZHdElwW9CAPQQ",
     },
 
 }
@@ -209,7 +209,7 @@ async def qism_yuborish(callback: types.CallbackQuery):
 @dp.message(F.document)
 async def fayl_id_olish(message: types.Message):
     if message.from_user.id == ADMIN_ID:
-        await message.answer(f"Fayl ID: {message.document.file_id}")
+        await message.answer(f"{message.document.file_id}")
 
 async def main():
     await db_connect()
