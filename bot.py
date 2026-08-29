@@ -16,7 +16,7 @@ db_pool = None
 
 KOMIKSLAR = {
     "Ajoyib Fantaziya": {
-        "#15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
+        "#15"(Yakunlangan✅): "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
     },
     "O'rgimchak-odam va Supermen": {
         "#1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
@@ -26,7 +26,7 @@ KOMIKSLAR = {
         "2-qism": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
     },
-    "Deadpool Marvel olamini o'ldiradi": {
+    "Deadpool Marvel olamini o'ldiradi (Yakunlangan✅)": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
         "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
         "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
@@ -40,12 +40,12 @@ KOMIKSLAR = {
     "Fuqarolar Urushi": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
- "Qasoskorlar : Parchalanish": {
+ "Qasoskorlar : Parchalanish (Yakunlangan✅)": {
         "1-qism": "BQACAgIAAxkBAAIaq2qG-_vVZTcQqQWT5sa7vIYXdcLPAAJgpwAC-1M4SGZHdElwW9CAPQQ",
 "2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
 "3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
 "4-qism": "BQACAgIAAxkBAAIewmqP-7DxaRQU53BYMYzMyWNCe_HfAAINqAACGEmBSG_tNBgacM5nPQQ",
-
+"5-qism (Final)": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
     },
 
 }
