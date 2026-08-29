@@ -15,32 +15,32 @@ dp = Dispatcher()
 db_pool = None
 
 KOMIKSLAR = {
-    "Ajoyib Fantaziya (Yakunlangan✅)": {
+    "Ajoyib Fantaziya✅": {
         "#15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
     },
-    "O'rgimchak-odam va Supermen": {
+    "O'rgimchak-odam va Supermen 🔄": {
         "#1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
     },
-    "Dum Yilnomalari": {
+    "Dum Yilnomalari🔄": {
         "1-qism": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
         "2-qism": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
     },
-    "Deadpool Marvel olamini o'ldiradi (Yakunlangan✅)": {
+    "Deadpool Marvel olamini o'ldiradi✅": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
         "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
         "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
         "4-qism": "BQACAgIAAxkBAAIQump0hoU8dWR0ivuufxz05kd--M01AALOpwACBbahS-MoQAcfcPxyPQQ",
     },
-    "Qora Qirol": {
+    "Qora Qirol🔄": {
         "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
         "2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
 "3-qism": "BQACAgIAAxkBAAIYqWqCikOjIEqn4ZtH-G1E6bPYgj1jAALapwAC6FMJSH98bnsa4YrnPQQ",
     },
-    "Fuqarolar Urushi": {
+    "Fuqarolar Urushi🔄": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
- "Qasoskorlar : Parchalanish (Yakunlangan✅)": {
+ "Qasoskorlar : Parchalanish✅": {
         "1-qism": "BQACAgIAAxkBAAIaq2qG-_vVZTcQqQWT5sa7vIYXdcLPAAJgpwAC-1M4SGZHdElwW9CAPQQ",
 "2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
 "3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
@@ -50,7 +50,7 @@ KOMIKSLAR = {
 
 }
 
-SAHIFA_HAJMI = 5
+SAHIFA_HAJMI = 4
 
 def seriya_sahifasini_topish(seriya_nomi: str) -> int:
     seriyalar = list(KOMIKSLAR.keys())
