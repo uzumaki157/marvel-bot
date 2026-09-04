@@ -25,6 +25,7 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
         "2-qism": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
+"4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
     },
     "Deadpool Marvel olamini o'ldiradi✅": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
