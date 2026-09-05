@@ -49,7 +49,7 @@ KOMIKSLAR = {
 "4-qism": "BQACAgIAAxkBAAIewmqP-7DxaRQU53BYMYzMyWNCe_HfAAINqAACGEmBSG_tNBgacM5nPQQ",
 "5-qism (Final)": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
     },
-"OY RITSARI: qORA, OQ & QON": {
+"OY RITSARI: QORA, OQ & QON": {
         "1-qism": "BQACAgIAAxkBAAJBAAFqnGwNJfjy99t1na56SxDYXv8kxwACIbEAAnUH4UjbZmzgxfFX_j0E",
     },
 
