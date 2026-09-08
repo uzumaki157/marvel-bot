@@ -52,6 +52,9 @@ KOMIKSLAR = {
 "Oy Ritsari: Qora, Oq & Qon🎁": {
         "1-qism": "BQACAgIAAxkBAAJBAAFqnGwNJfjy99t1na56SxDYXv8kxwACIbEAAnUH4UjbZmzgxfFX_j0E",
     },
+"Turonlik O'rgimchak": {
+        "1-qism": "BQACAgIAAxkBAAJEmWqfv7Jt7F6YcJIQ6hqegdRVnxNmAAJUowACvez4SJ4oUhF_TE_5PQQ",
+    },
 
 
 }
