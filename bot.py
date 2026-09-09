@@ -55,6 +55,9 @@ KOMIKSLAR = {
 "Turonlik O'rgimchak🆕": {
         "1-qism": "BQACAgIAAxkBAAJEmWqfv7Jt7F6YcJIQ6hqegdRVnxNmAAJUowACvez4SJ4oUhF_TE_5PQQ",
     },
+"Agarda...?": {
+        "Qasoskoarlar: Parchalanish": "BQACAgIAAxkBAAJHVmqg294r-OZT9IPBbTN7Aw6llmVvAAIEwAACQy0ISVPzCs1_b2XUPQQ",
+    },
 
 
 }
