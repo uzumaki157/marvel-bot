@@ -15,7 +15,7 @@ dp = Dispatcher()
 db_pool = None
 
 KOMIKSLAR = {
-    "Ajoyib Fantaziya✅": {
+    "Ajoyib Fantaziya💯": {
         "#15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
     },
     "O'rgimchak-odam va Supermen ": {
@@ -27,29 +27,30 @@ KOMIKSLAR = {
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
 "4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
     },
-    "Deadpool Marvel olamini o'ldiradi✅": {
+    "Deadpool Marvel olamini o'ldiradi💯": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
         "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
         "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
         "4-qism": "BQACAgIAAxkBAAIQump0hoU8dWR0ivuufxz05kd--M01AALOpwACBbahS-MoQAcfcPxyPQQ",
     },
-    "Qora Qirol": {
+    "Qora Qirol💯": {
         "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
         "2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
 "3-qism": "BQACAgIAAxkBAAIYqWqCikOjIEqn4ZtH-G1E6bPYgj1jAALapwAC6FMJSH98bnsa4YrnPQQ",
 "4-qism": "BQACAgIAAxkBAAIivWqXqtaID-kBaNV2iMFqaZAAAaFhEgACfaYAAgIgqUh-_WmDEtcnxT0E",
+"5-qism": "BQACAgIAAxkBAAJKf2qk2Joyhus-kQZ-C_8bsg-05LpnAAIHrwACvpopSWpE-JN1pfEwPQQ",
     },
     "Fuqarolar Urushi": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
- "Qasoskorlar : Parchalanish✅": {
+ "Qasoskorlar : Parchalanish💯": {
         "1-qism": "BQACAgIAAxkBAAIaq2qG-_vVZTcQqQWT5sa7vIYXdcLPAAJgpwAC-1M4SGZHdElwW9CAPQQ",
 "2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
 "3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
 "4-qism": "BQACAgIAAxkBAAIewmqP-7DxaRQU53BYMYzMyWNCe_HfAAINqAACGEmBSG_tNBgacM5nPQQ",
 "5-qism (Final)": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
     },
-"Oy Ritsari: Qora, Oq & Qon🎁": {
+"Oy Ritsari: Qora, Oq & Qon": {
         "1-qism": "BQACAgIAAxkBAAJBAAFqnGwNJfjy99t1na56SxDYXv8kxwACIbEAAnUH4UjbZmzgxfFX_j0E",
     },
 "Turonlik O'rgimchak": {
