@@ -59,6 +59,10 @@ KOMIKSLAR = {
 "AGARDA...❓": {
         "Qasoskoarlar: Parchalanish": "BQACAgIAAxkBAAJHVmqg294r-OZT9IPBbTN7Aw6llmVvAAIEwAACQy0ISVPzCs1_b2XUPQQ",
     },
+"M SULOLASI": {
+        "1-qism": "BQACAgIAAxkBAAJToWqoRSkBaoZdGs9YPqV3wT3y1VLvAAIYsQACxDBASS2S_dTJwSwjPQQ",
+    },
+
 
 
 }
