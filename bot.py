@@ -62,7 +62,9 @@ KOMIKSLAR = {
 "M SULOLASI": {
         "1-qism": "BQACAgIAAxkBAAJToWqoRSkBaoZdGs9YPqV3wT3y1VLvAAIYsQACxDBASS2S_dTJwSwjPQQ",
     },
-
+"Yuksak O'rgimchak-Odam": {
+        "1-qism": "BQACAgIAAxkBAAJURWqo1aHc-ENXg2J6_sVKK2g2dqh0AAIemwACmyJJSXvAM-nDS6wEPQQ",
+    },
 
 
 
