@@ -172,21 +172,29 @@ def qaytish_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"sahifa:{sahifa}")]
     ])
 
-async def komiksni_yuborish(message: types.Message, kod: str):
-    """Berilgan deep-link kodi bo'yicha aynan kerakli komiks qismini yuboradi."""
+def boshqa_komikslar_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📚 Boshqa komikslar", callback_data=f"sahifa:{sahifa}")]
+    ])
+
+async def komiksni_yuborish(message: types.Message, kod: str) -> bool:
+    """Berilgan deep-link kodi bo'yicha aynan kerakli komiks qismini yuboradi.
+    Kod haqiqiy bo'lsa True, aks holda False qaytaradi."""
     seriya_nomi, qism = kod_orqali_komiks_topish(kod)
     if not seriya_nomi:
-        return
+        return False
     sahifa = seriya_sahifasini_topish(seriya_nomi)
     fayl_id = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
     if fayl_id:
         await message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
+        await message.answer("👆 Komiks tayyor!", reply_markup=boshqa_komikslar_tugmasi(sahifa))
     else:
         await message.answer(
             f"⏳ *{seriya_nomi} {qism}* hali tarjima qilinmoqda.\n\nTez orada tayyor bo'ladi!",
             parse_mode="Markdown",
             reply_markup=qaytish_tugmasi(sahifa)
         )
+    return True
 
 @dp.message(CommandStart())
 async def start(message: types.Message):
@@ -196,8 +204,8 @@ async def start(message: types.Message):
     kod = qismlar[1].strip() if len(qismlar) > 1 else None
 
     if await obuna_tekshir(message.from_user.id):
-        if kod:
-            await komiksni_yuborish(message, kod)
+        if kod and await komiksni_yuborish(message, kod):
+            return
         await message.answer("👋 Salom! Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(0))
     else:
         await message.answer(
@@ -283,9 +291,10 @@ async def link_qism_tanlash(callback: types.CallbackQuery):
 async def obuna_tekshirish(callback: types.CallbackQuery):
     if await obuna_tekshir(callback.from_user.id):
         kod = callback.data.split("tekshir:")[1] if ":" in callback.data else None
-        if kod:
-            await komiksni_yuborish(callback.message, kod)
-        await callback.message.edit_text("✅ Rahmat! Endi komikslarni o'qishingiz mumkin.", reply_markup=seriya_menyusi(0))
+        if kod and await komiksni_yuborish(callback.message, kod):
+            await callback.message.edit_text("✅ Rahmat! Obuna tasdiqlandi.")
+        else:
+            await callback.message.edit_text("✅ Rahmat! Endi komikslarni o'qishingiz mumkin.", reply_markup=seriya_menyusi(0))
     else:
         await callback.answer("❌ Siz hali obuna bo'lmadingiz!", show_alert=True)
 
