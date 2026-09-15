@@ -27,7 +27,7 @@ KOMIKSLAR = {
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
 "4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
     },
-    "Deadpool Marvel olamini o'ldiradi💯": {
+    "Deadpool Marvel olamini o'ldiradi": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
         "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
         "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
@@ -43,7 +43,7 @@ KOMIKSLAR = {
     "Fuqarolar Urushi": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
- "Qasoskorlar : Parchalanish💯": {
+ "Qasoskorlar: Parchalanish💯": {
         "1-qism": "BQACAgIAAxkBAAIaq2qG-_vVZTcQqQWT5sa7vIYXdcLPAAJgpwAC-1M4SGZHdElwW9CAPQQ",
 "2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
 "3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
@@ -66,8 +66,6 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAJURWqo1aHc-ENXg2J6_sVKK2g2dqh0AAIemwACmyJJSXvAM-nDS6wEPQQ",
     },
 
-
-
 }
 
 SAHIFA_HAJMI = 4
@@ -77,6 +75,31 @@ def seriya_sahifasini_topish(seriya_nomi: str) -> int:
     if seriya_nomi in seriyalar:
         return seriyalar.index(seriya_nomi) // SAHIFA_HAJMI
     return 0
+
+def komiks_kodini_topish(seriya_nomi: str, qism: str) -> str | None:
+    """Seriya va qism nomidan Telegram deep-link uchun xavfsiz kod yasaydi (masalan '2_3')."""
+    seriyalar = list(KOMIKSLAR.keys())
+    if seriya_nomi not in seriyalar:
+        return None
+    s_idx = seriyalar.index(seriya_nomi)
+    qismlar = list(KOMIKSLAR[seriya_nomi].keys())
+    if qism not in qismlar:
+        return None
+    q_idx = qismlar.index(qism)
+    return f"{s_idx}_{q_idx}"
+
+def kod_orqali_komiks_topish(kod: str):
+    """Deep-link kodidan (masalan '2_3') seriya_nomi va qism nomini qaytaradi."""
+    try:
+        s_idx_str, q_idx_str = kod.split("_", 1)
+        s_idx, q_idx = int(s_idx_str), int(q_idx_str)
+        seriyalar = list(KOMIKSLAR.keys())
+        seriya_nomi = seriyalar[s_idx]
+        qismlar = list(KOMIKSLAR[seriya_nomi].keys())
+        qism = qismlar[q_idx]
+        return seriya_nomi, qism
+    except (ValueError, IndexError):
+        return None, None
 
 async def db_connect():
     global db_pool
@@ -137,10 +160,11 @@ def qismlar_menyusi(seriya_nomi: str, sahifa: int) -> InlineKeyboardMarkup:
     tugmalar.append([InlineKeyboardButton(text="🔙 Orqaga", callback_data=f"sahifa:{sahifa}")])
     return InlineKeyboardMarkup(inline_keyboard=tugmalar)
 
-def obuna_tugmasi() -> InlineKeyboardMarkup:
+def obuna_tugmasi(kod: str | None = None) -> InlineKeyboardMarkup:
+    tekshir_data = f"tekshir:{kod}" if kod else "tekshir"
     return InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="📢 Kanalga obuna bo'lish", url="https://t.me/iPageUz")],
-        [InlineKeyboardButton(text="✅ Obunani tekshirish", callback_data="tekshir")]
+        [InlineKeyboardButton(text="✅ Obunani tekshirish", callback_data=tekshir_data)]
     ])
 
 def qaytish_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
@@ -148,15 +172,37 @@ def qaytish_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"sahifa:{sahifa}")]
     ])
 
+async def komiksni_yuborish(message: types.Message, kod: str):
+    """Berilgan deep-link kodi bo'yicha aynan kerakli komiks qismini yuboradi."""
+    seriya_nomi, qism = kod_orqali_komiks_topish(kod)
+    if not seriya_nomi:
+        return
+    sahifa = seriya_sahifasini_topish(seriya_nomi)
+    fayl_id = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
+    if fayl_id:
+        await message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
+    else:
+        await message.answer(
+            f"⏳ *{seriya_nomi} {qism}* hali tarjima qilinmoqda.\n\nTez orada tayyor bo'ladi!",
+            parse_mode="Markdown",
+            reply_markup=qaytish_tugmasi(sahifa)
+        )
+
 @dp.message(CommandStart())
 async def start(message: types.Message):
     await foydalanuvchi_saqlash(message.from_user.id, message.from_user.username)
+
+    qismlar = message.text.split(maxsplit=1)
+    kod = qismlar[1].strip() if len(qismlar) > 1 else None
+
     if await obuna_tekshir(message.from_user.id):
+        if kod:
+            await komiksni_yuborish(message, kod)
         await message.answer("👋 Salom! Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(0))
     else:
         await message.answer(
             "👋 Salom!\n\n📚 Marvel komikslarini o'zbek tilida o'qish uchun avval kanalimizga obuna bo'ling.\n\nObuna bo'lgach '✅ Obunani tekshirish' tugmasini bosing.",
-            reply_markup=obuna_tugmasi()
+            reply_markup=obuna_tugmasi(kod)
         )
 
 @dp.message(F.text == "/stats")
@@ -183,9 +229,62 @@ async def broadcast(message: types.Message):
             xato += 1
     await message.answer(f"✅ Yuborildi: {yuborildi} ta\n❌ Xato: {xato} ta")
 
+def link_seriya_menyusi() -> InlineKeyboardMarkup:
+    tugmalar = []
+    for nom in KOMIKSLAR.keys():
+        tugmalar.append([InlineKeyboardButton(text=nom, callback_data=f"link_seriya:{nom}")])
+    return InlineKeyboardMarkup(inline_keyboard=tugmalar)
+
+def link_qism_menyusi(seriya_nomi: str) -> InlineKeyboardMarkup:
+    tugmalar = []
+    for qism in KOMIKSLAR.get(seriya_nomi, {}).keys():
+        tugmalar.append([InlineKeyboardButton(text=qism, callback_data=f"link_qism:{seriya_nomi}|{qism}")])
+    tugmalar.append([InlineKeyboardButton(text="🔙 Orqaga", callback_data="link_orqaga")])
+    return InlineKeyboardMarkup(inline_keyboard=tugmalar)
+
+@dp.message(Command("link"))
+async def link_boshlash(message: types.Message):
+    if message.from_user.id != ADMIN_ID:
+        return
+    await message.answer("Qaysi seriya uchun link kerak?", reply_markup=link_seriya_menyusi())
+
+@dp.callback_query(F.data == "link_orqaga")
+async def link_orqaga(callback: types.CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        return
+    await callback.message.edit_text("Qaysi seriya uchun link kerak?", reply_markup=link_seriya_menyusi())
+    await callback.answer()
+
+@dp.callback_query(F.data.startswith("link_seriya:"))
+async def link_seriya_tanlash(callback: types.CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        return
+    seriya_nomi = callback.data.split("link_seriya:")[1]
+    await callback.message.edit_text(f"*{seriya_nomi}* — qaysi qism?", parse_mode="Markdown", reply_markup=link_qism_menyusi(seriya_nomi))
+    await callback.answer()
+
+@dp.callback_query(F.data.startswith("link_qism:"))
+async def link_qism_tanlash(callback: types.CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        return
+    data = callback.data.split("link_qism:")[1]
+    seriya_nomi, qism = data.split("|", 1)
+    kod = komiks_kodini_topish(seriya_nomi, qism)
+    bot_ma1lumot = await bot.get_me()
+    link = f"https://t.me/{bot_ma1lumot.username}?start={kod}"
+    await callback.message.edit_text(
+        f"📖 *{seriya_nomi} {qism}*\n\n🔗 Tugma uchun link:\n`{link}`",
+        parse_mode="Markdown"
+    )
+    await callback.answer()
+
 @dp.callback_query(F.data == "tekshir")
+@dp.callback_query(F.data.startswith("tekshir:"))
 async def obuna_tekshirish(callback: types.CallbackQuery):
     if await obuna_tekshir(callback.from_user.id):
+        kod = callback.data.split("tekshir:")[1] if ":" in callback.data else None
+        if kod:
+            await komiksni_yuborish(callback.message, kod)
         await callback.message.edit_text("✅ Rahmat! Endi komikslarni o'qishingiz mumkin.", reply_markup=seriya_menyusi(0))
     else:
         await callback.answer("❌ Siz hali obuna bo'lmadingiz!", show_alert=True)
