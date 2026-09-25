@@ -28,7 +28,7 @@ KOMIKSLAR = {
 "4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
 "5-qism": "BQACAgIAAxkBAAJWaGqrXnvTOptaVHtdbyKOGqUiXcYWAAKepQAC3J5hSbl-01C6vSE6PQQ",
     },
-    "Deadpool Marvel olamini o'ldiradi": {
+    "Deadpool Marvel olamini o'ldiradi💯": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
         "2-qism": "BQACAgIAAxkBAAIIWWpUcpLweNMyeCXfoubwCvx6oKviAAKnnwACMmSRSigYEpXP1My1PAQ",
         "3-qism": "BQACAgIAAxkBAAIOFWpvcnXRNSalrBniHXxa_Bk4Lu36AAJ7rAACGjtwS6Oa5tEiaO0ePQQ",
@@ -63,6 +63,7 @@ KOMIKSLAR = {
 "M SULOLASI": {
         "1-qism": "BQACAgIAAxkBAAJToWqoRSkBaoZdGs9YPqV3wT3y1VLvAAIYsQACxDBASS2S_dTJwSwjPQQ",
 "2-qism": "BQACAgIAAxkBAAJYkWquZ4IUSN0GXOHPese1QQHgxaELAAJ_qAACDFV4SZ8YL0MC9379PQQ",
+"3-qism": "BQACAgIAAxkBAAJbHWq2XZQMH6lKtr1ukj6qXxEub_52AALbsQAC3WKxSbSim79EyOkQPQQ",
 
     },
 "Yuksak O'rgimchak-Odam": {
