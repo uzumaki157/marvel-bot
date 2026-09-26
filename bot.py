@@ -71,7 +71,6 @@ KOMIKSLAR = {
 "Betmen: Boyqushlar kengashi": {
         "1-qism": "BQACAgIAAxkBAAJcCmq3X7ACNuVv43vUO9tvaimvCXToAAK4pQAC_0zASa7vCddpzXmhPQQ",
     },
-
 }
 
 SAHIFA_HAJMI = 4
