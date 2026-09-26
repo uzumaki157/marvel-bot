@@ -64,10 +64,10 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAJToWqoRSkBaoZdGs9YPqV3wT3y1VLvAAIYsQACxDBASS2S_dTJwSwjPQQ",
 "2-qism": "BQACAgIAAxkBAAJYkWquZ4IUSN0GXOHPese1QQHgxaELAAJ_qAACDFV4SZ8YL0MC9379PQQ",
 "3-qism": "BQACAgIAAxkBAAJbHWq2XZQMH6lKtr1ukj6qXxEub_52AALbsQAC3WKxSbSim79EyOkQPQQ",
-
-    },
+ },
 "Yuksak O'rgimchak-Odam": {
         "1-qism": "BQACAgIAAxkBAAJURWqo1aHc-ENXg2J6_sVKK2g2dqh0AAIemwACmyJJSXvAM-nDS6wEPQQ",
+},
 "Betmen: Boyqushlar kengashi": {
         "1-qism": "BQACAgIAAxkBAAJcCmq3X7ACNuVv43vUO9tvaimvCXToAAK4pQAC_0zASa7vCddpzXmhPQQ",
     },
