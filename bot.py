@@ -68,6 +68,8 @@ KOMIKSLAR = {
     },
 "Yuksak O'rgimchak-Odam": {
         "1-qism": "BQACAgIAAxkBAAJURWqo1aHc-ENXg2J6_sVKK2g2dqh0AAIemwACmyJJSXvAM-nDS6wEPQQ",
+"Betmen: Boyqushlar kengashi": {
+        "1-qism": "BQACAgIAAxkBAAJcCmq3X7ACNuVv43vUO9tvaimvCXToAAK4pQAC_0zASa7vCddpzXmhPQQ",
     },
 
 }
