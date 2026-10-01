@@ -21,12 +21,13 @@ KOMIKSLAR = {
     "O'rgimchak-odam va Supermen ": {
         "#1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
     },
-    "Dum Yilnomalari": {
+    "Dum Yilnomalari💯": {
         "1-qism": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
         "2-qism": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
 "4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
 "5-qism": "BQACAgIAAxkBAAJWaGqrXnvTOptaVHtdbyKOGqUiXcYWAAKepQAC3J5hSbl-01C6vSE6PQQ",
+"6-qism": "BQACAgIAAxkBAAJq2Gq-LlvUG4QoAlj9ZeRArH65LTNVAAKHogACkBvwSbcx4BCKlI3nPQQ",
     },
     "Deadpool Marvel olamini o'ldiradi💯": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
