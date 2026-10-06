@@ -50,7 +50,7 @@ KOMIKSLAR = {
 "2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
 "3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
 "4-qism": "BQACAgIAAxkBAAIewmqP-7DxaRQU53BYMYzMyWNCe_HfAAINqAACGEmBSG_tNBgacM5nPQQ",
-"5-qism (Final)": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
+"5-qism": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
     },
 "Oy Ritsari: Qora, Oq & Qon": {
         "1-qism": "BQACAgIAAxkBAAJBAAFqnGwNJfjy99t1na56SxDYXv8kxwACIbEAAnUH4UjbZmzgxfFX_j0E",
