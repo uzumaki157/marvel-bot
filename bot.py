@@ -15,11 +15,11 @@ dp = Dispatcher()
 db_pool = None
 
 KOMIKSLAR = {
-    "Ajoyib Fantaziya💯": {
-        "#15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
+    "Ajoyib Fantaziya": {
+        "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
     },
     "O'rgimchak-odam va Supermen ": {
-        "#1": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
+        "1-qism": "BQACAgIAAxkBAAPEaiT5TbIEuW95Im0gvp_KUvy43jAAAtOlAALA_CBJIgkZSFGwK5I7BA",
     },
     "Dum Yilnomalari💯": {
         "1-qism": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
@@ -74,7 +74,7 @@ KOMIKSLAR = {
     },
 }
 
-SAHIFA_HAJMI = 4
+SAHIFA_HAJMI = 5
 
 def seriya_sahifasini_topish(seriya_nomi: str) -> int:
     seriyalar = list(KOMIKSLAR.keys())
