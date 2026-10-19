@@ -74,6 +74,7 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAJcCmq3X7ACNuVv43vUO9tvaimvCXToAAK4pQAC_0zASa7vCddpzXmhPQQ",
 "2-qism": "BQACAgIAAxkBAAJzQGrFEz7BEpUBX86LJ2fYuHu5Zuz_AAJBpgAC5CUpSt4TcPrWfnL-PQQ",
 "3-qism": "BQACAgIAAxkBAAJ4xGrMXx7eVRVq_tFN6Vunin_vg5ZcAAIWrgACz9BgSmwgjBcgCS0WPQQ",
+"4-qism": "BQACAgIAAxkBAAJ87mrVqRNXfykjif-18YtuC-KzCUV5AAIG1gACnQaoSgFp-hPg_eKdPQQ",
     },
 }
 
