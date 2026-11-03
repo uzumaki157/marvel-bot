@@ -91,8 +91,7 @@ KOMIKSLAR = {
      "Komiksni o'qish": {
          "rasm": "AgACAgIAAxkBAAKChmrpaxrNkJsbszzxAAGE3dgclrHHLgAC_x5rG-5nUEvdLxTTX_e9AAEBAAMCAAN3AAM9BA",
          "matn": "🔒 Ushbu komikslar premium kanalda!",
-         "link": "https://t.me/tapsuzbot/app?startapp=5b5c7238", },
-}
+         "link": "https://t.me/tapsuzbot/app?startapp=5b5c7238", },}, }
 
 SAHIFA_HAJMI = 5
 
