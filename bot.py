@@ -14,6 +14,16 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 db_pool = None
 
+# PULLIK QISM NAMUNASI (kerak bo'lganda # ni olib, o'z ID va linkingizni yozing):
+# "Secret Wars": {
+#     "1-qism": "pdf_fayl_id",
+#     "2-qism": {
+#         "rasm": "rasm_fayl_id",            # yoki "video": "video_fayl_id"
+#         "matn": "🔒 Bu qism premium kanalda!",
+#         "link": "https://t.me/+AbCdEfGh123",
+#     },
+# },
+
 KOMIKSLAR = {
     "Ajoyib Fantaziya": {
         "Ajoyib Fantaziya #15": "BQACAgIAAxkBAAMEah_Eg5PHnK_cnGidT_Ag0RTFsegAAnmgAAK8XZFI9UR38GVcbsU7BA",
@@ -25,9 +35,9 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAIDXGovvvll2q4WO83WfVMFJJ1JDPs9AALHpgACFkmASWBwHYQ3MpT8PAQ",
         "2-qism": "BQACAgIAAxkBAAIHR2pPfC1p8plSFdzHiXl7foEgXCiiAAKvoQACvUyASjTl25ZKtOn5PAQ",
         "3-qism": "BQACAgIAAxkBAAIM8WprMuUNRa-mdVwwJDtV8Rk7-C0sAALspgAC6R9RS_SG0Gq7MU1lPQQ",
-"4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
-"5-qism": "BQACAgIAAxkBAAJWaGqrXnvTOptaVHtdbyKOGqUiXcYWAAKepQAC3J5hSbl-01C6vSE6PQQ",
-"6-qism": "BQACAgIAAxkBAAJq2Gq-LlvUG4QoAlj9ZeRArH65LTNVAAKHogACkBvwSbcx4BCKlI3nPQQ",
+        "4-qism": "BQACAgIAAxkBAAI98mqaqBMcc5f-0MNKdJQux7SJ4PzNAALFngACyEnYSMXh0JyA_DBAPQQ",
+        "5-qism": "BQACAgIAAxkBAAJWaGqrXnvTOptaVHtdbyKOGqUiXcYWAAKepQAC3J5hSbl-01C6vSE6PQQ",
+        "6-qism": "BQACAgIAAxkBAAJq2Gq-LlvUG4QoAlj9ZeRArH65LTNVAAKHogACkBvwSbcx4BCKlI3nPQQ",
     },
     "Deadpool Marvel olamini o'ldiradi💯": {
         "1-qism": "BQACAgIAAxkBAAIE-2pCUtI1xClzfDV9IDdkvYIuPurRAAIHlwACdA4RSh2erBP3HHlTPAQ",
@@ -38,44 +48,44 @@ KOMIKSLAR = {
     "Qora Qirol💯": {
         "1-qism": "BQACAgIAAxkBAAIL9mpoZ-SzPCBYXyL5sOmQbMOchmafAAJFqQACbMFAS5P7n-ONKQnNPQQ",
         "2-qism": "BQACAgIAAxkBAAIVrWp9TLFyI2hfBAWlHmot2oQ9f-_4AAK9pgACcy3gS4R0UjJaHW_7PQQ",
-"3-qism": "BQACAgIAAxkBAAIYqWqCikOjIEqn4ZtH-G1E6bPYgj1jAALapwAC6FMJSH98bnsa4YrnPQQ",
-"4-qism": "BQACAgIAAxkBAAIivWqXqtaID-kBaNV2iMFqaZAAAaFhEgACfaYAAgIgqUh-_WmDEtcnxT0E",
-"5-qism": "BQACAgIAAxkBAAJKf2qk2Joyhus-kQZ-C_8bsg-05LpnAAIHrwACvpopSWpE-JN1pfEwPQQ",
+        "3-qism": "BQACAgIAAxkBAAIYqWqCikOjIEqn4ZtH-G1E6bPYgj1jAALapwAC6FMJSH98bnsa4YrnPQQ",
+        "4-qism": "BQACAgIAAxkBAAIivWqXqtaID-kBaNV2iMFqaZAAAaFhEgACfaYAAgIgqUh-_WmDEtcnxT0E",
+        "5-qism": "BQACAgIAAxkBAAJKf2qk2Joyhus-kQZ-C_8bsg-05LpnAAIHrwACvpopSWpE-JN1pfEwPQQ",
     },
     "Fuqarolar Urushi": {
         "1-qism": "BQACAgIAAxkBAAIWzWqASoZgNUiQyjvPVEYr9N7zIOZ0AAKFsAAClvgISNBOqLJdJpdaPQQ",
     },
- "Qasoskorlar: Parchalanish💯": {
+    "Qasoskorlar: Parchalanish💯": {
         "1-qism": "BQACAgIAAxkBAAIaq2qG-_vVZTcQqQWT5sa7vIYXdcLPAAJgpwAC-1M4SGZHdElwW9CAPQQ",
-"2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
-"3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
-"4-qism": "BQACAgIAAxkBAAIewmqP-7DxaRQU53BYMYzMyWNCe_HfAAINqAACGEmBSG_tNBgacM5nPQQ",
-"5-qism": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
+        "2-qism": "BQACAgIAAxkBAAIbTGqIGsMSobXmAwg5BJKHxQ_WVa3fAAIssgACEYRISElnmXJCWZ24PQQ",
+        "3-qism": "BQACAgIAAxkBAAIdP2qMbr3j_PpDeVerrvM-P6AWC9lzAAJxqgAChqNoSALSw73pc9xEPQQ",
+        "4-qism": "BQACAgIAAxkBAAIewmqP-7DxaRQU53BYMYzMyWNCe_HfAAINqAACGEmBSG_tNBgacM5nPQQ",
+        "5-qism": "BQACAgIAAxkBAAIf0WqSusAPPB1aCVB-gKqyb9qsOvEoAALqlAACsdyYSLq_1B34Qs_wPQQ",
     },
-"Oy Ritsari: Qora, Oq & Qon": {
+    "Oy Ritsari: Qora, Oq & Qon": {
         "1-qism": "BQACAgIAAxkBAAJBAAFqnGwNJfjy99t1na56SxDYXv8kxwACIbEAAnUH4UjbZmzgxfFX_j0E",
     },
-"Turonlik O'rgimchak": {
+    "Turonlik O'rgimchak": {
         "1-qism": "BQACAgIAAxkBAAJEmWqfv7Jt7F6YcJIQ6hqegdRVnxNmAAJUowACvez4SJ4oUhF_TE_5PQQ",
     },
-"AGARDA...❓": {
+    "AGARDA...❓": {
         "Qasoskoarlar: Parchalanish": "BQACAgIAAxkBAAJHVmqg294r-OZT9IPBbTN7Aw6llmVvAAIEwAACQy0ISVPzCs1_b2XUPQQ",
     },
-"M SULOLASI": {
+    "M SULOLASI": {
         "1-qism": "BQACAgIAAxkBAAJToWqoRSkBaoZdGs9YPqV3wT3y1VLvAAIYsQACxDBASS2S_dTJwSwjPQQ",
-"2-qism": "BQACAgIAAxkBAAJYkWquZ4IUSN0GXOHPese1QQHgxaELAAJ_qAACDFV4SZ8YL0MC9379PQQ",
-"3-qism": "BQACAgIAAxkBAAJbHWq2XZQMH6lKtr1ukj6qXxEub_52AALbsQAC3WKxSbSim79EyOkQPQQ",
-"4-qism": "BQACAgIAAxkBAAJ12WrIiBkBDMzDfbNyoT8Jo2acZ146AAJepwACINpISr4UWcJgzP4YPQQ",
-"5-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
- },
-"Yuksak O'rgimchak-Odam": {
+        "2-qism": "BQACAgIAAxkBAAJYkWquZ4IUSN0GXOHPese1QQHgxaELAAJ_qAACDFV4SZ8YL0MC9379PQQ",
+        "3-qism": "BQACAgIAAxkBAAJbHWq2XZQMH6lKtr1ukj6qXxEub_52AALbsQAC3WKxSbSim79EyOkQPQQ",
+        "4-qism": "BQACAgIAAxkBAAJ12WrIiBkBDMzDfbNyoT8Jo2acZ146AAJepwACINpISr4UWcJgzP4YPQQ",
+        "5-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
+    },
+    "Yuksak O'rgimchak-Odam": {
         "1-qism": "BQACAgIAAxkBAAJURWqo1aHc-ENXg2J6_sVKK2g2dqh0AAIemwACmyJJSXvAM-nDS6wEPQQ",
-},
-"Betmen: Boyqushlar kengashi": {
+    },
+    "Betmen: Boyqushlar kengashi": {
         "1-qism": "BQACAgIAAxkBAAJcCmq3X7ACNuVv43vUO9tvaimvCXToAAK4pQAC_0zASa7vCddpzXmhPQQ",
-"2-qism": "BQACAgIAAxkBAAJzQGrFEz7BEpUBX86LJ2fYuHu5Zuz_AAJBpgAC5CUpSt4TcPrWfnL-PQQ",
-"3-qism": "BQACAgIAAxkBAAJ4xGrMXx7eVRVq_tFN6Vunin_vg5ZcAAIWrgACz9BgSmwgjBcgCS0WPQQ",
-"4-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
+        "2-qism": "BQACAgIAAxkBAAJzQGrFEz7BEpUBX86LJ2fYuHu5Zuz_AAJBpgAC5CUpSt4TcPrWfnL-PQQ",
+        "3-qism": "BQACAgIAAxkBAAJ4xGrMXx7eVRVq_tFN6Vunin_vg5ZcAAIWrgACz9BgSmwgjBcgCS0WPQQ",
+        "4-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
     },
 }
 
@@ -188,23 +198,51 @@ def boshqa_komikslar_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="📚 Boshqa komikslar", callback_data=f"sahifa:{sahifa}")]
     ])
 
-async def komiksni_yuborish(message: types.Message, kod: str) -> bool:
-    """Berilgan deep-link kodi bo'yicha aynan kerakli komiks qismini yuboradi.
-    Kod haqiqiy bo'lsa True, aks holda False qaytaradi."""
-    seriya_nomi, qism = kod_orqali_komiks_topish(kod)
-    if not seriya_nomi:
-        return False
-    sahifa = seriya_sahifasini_topish(seriya_nomi)
-    fayl_id = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
-    if fayl_id:
-        await message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
-        await message.answer("👆 Komiks tayyor!", reply_markup=boshqa_komikslar_tugmasi(sahifa))
-    else:
+async def qismni_yuborish(message: types.Message, seriya_nomi: str, qism: str, sahifa: int, deeplink: bool = False):
+    """Qismni yuboradi: oddiy (PDF), pullik (poster + premium tugma) yoki hali tayyor emas."""
+    mazmun = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
+
+    # 1) Hali tarjima qilinmoqda
+    if mazmun is None:
         await message.answer(
             f"⏳ *{seriya_nomi} {qism}* hali tarjima qilinmoqda.\n\nTez orada tayyor bo'ladi!",
             parse_mode="Markdown",
             reply_markup=qaytish_tugmasi(sahifa)
         )
+        return
+
+    # 2) Pullik qism: poster (rasm/video) + premium kanalga tugma
+    if isinstance(mazmun, dict):
+        matn = mazmun.get("matn", "🔒 Bu qism premium kanalda!")
+        link = mazmun.get("link")
+        tugmalar = []
+        if link:
+            tugmalar.append([InlineKeyboardButton(text="💎 Premium kanalga o'tish", url=link)])
+        tugmalar.append([InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"sahifa:{sahifa}")])
+        markup = InlineKeyboardMarkup(inline_keyboard=tugmalar)
+
+        if mazmun.get("video"):
+            await message.answer_video(mazmun["video"], caption=matn, reply_markup=markup, protect_content=True)
+        elif mazmun.get("rasm"):
+            await message.answer_photo(mazmun["rasm"], caption=matn, reply_markup=markup, protect_content=True)
+        else:
+            await message.answer(matn, reply_markup=markup)
+        return
+
+    # 3) Oddiy qism: PDF
+    await message.answer_document(mazmun, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
+    if deeplink:
+        await message.answer("👆 Komiks tayyor!", reply_markup=boshqa_komikslar_tugmasi(sahifa))
+    else:
+        await message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi(sahifa))
+
+async def komiksni_yuborish(message: types.Message, kod: str) -> bool:
+    """Deep-link kodi bo'yicha kerakli qismni yuboradi. Kod haqiqiy bo'lsa True qaytaradi."""
+    seriya_nomi, qism = kod_orqali_komiks_topish(kod)
+    if not seriya_nomi:
+        return False
+    sahifa = seriya_sahifasini_topish(seriya_nomi)
+    await qismni_yuborish(message, seriya_nomi, qism, sahifa, deeplink=True)
     return True
 
 @dp.message(CommandStart())
@@ -336,23 +374,24 @@ async def qism_yuborish(callback: types.CallbackQuery):
     seriya_qism = parts[0]
     sahifa = int(parts[1]) if len(parts) > 1 else 0
     seriya_nomi, qism = seriya_qism.split("|", 1)
-    fayl_id = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
-    if fayl_id is None:
-        await callback.message.answer(
-            f"⏳ *{seriya_nomi} {qism}* hali tarjima qilinmoqda.\n\nTez orada tayyor bo'ladi!",
-            parse_mode="Markdown",
-            reply_markup=qaytish_tugmasi(sahifa)
-        )
-        await callback.answer()
-    else:
-        await callback.message.answer_document(fayl_id, caption=f"📖 {seriya_nomi} {qism}", protect_content=True)
-        await callback.message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi(sahifa))
-        await callback.answer()
+    await qismni_yuborish(callback.message, seriya_nomi, qism, sahifa)
+    await callback.answer()
 
+# --- Faqat admin uchun: fayl ID olish (PDF, rasm, video) ---
 @dp.message(F.document)
 async def fayl_id_olish(message: types.Message):
     if message.from_user.id == ADMIN_ID:
         await message.answer(f"{message.document.file_id}")
+
+@dp.message(F.photo)
+async def rasm_id_olish(message: types.Message):
+    if message.from_user.id == ADMIN_ID:
+        await message.answer(f"{message.photo[-1].file_id}")
+
+@dp.message(F.video)
+async def video_id_olish(message: types.Message):
+    if message.from_user.id == ADMIN_ID:
+        await message.answer(f"{message.video.file_id}")
 
 async def main():
     await db_connect()
