@@ -87,6 +87,11 @@ KOMIKSLAR = {
         "3-qism": "BQACAgIAAxkBAAJ4xGrMXx7eVRVq_tFN6Vunin_vg5ZcAAIWrgACz9BgSmwgjBcgCS0WPQQ",
         "4-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
     },
+"Yarim Tun komikslari": {
+     "Komiksni o'qish": {
+         "rasm": "AgACAgIAAxkBAAKChmrpaxrNkJsbszzxAAGE3dgclrHHLgAC_x5rG-5nUEvdLxTTX_e9AAEBAAMCAAN3AAM9BA",
+         "matn": "🔒 Ushbu komikslar premium kanalda!",
+         "link": "https://t.me/tapsuzbot/app?startapp=5b5c7238",
 }
 
 SAHIFA_HAJMI = 5
