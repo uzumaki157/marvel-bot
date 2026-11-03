@@ -85,13 +85,19 @@ KOMIKSLAR = {
         "1-qism": "BQACAgIAAxkBAAJcCmq3X7ACNuVv43vUO9tvaimvCXToAAK4pQAC_0zASa7vCddpzXmhPQQ",
         "2-qism": "BQACAgIAAxkBAAJzQGrFEz7BEpUBX86LJ2fYuHu5Zuz_AAJBpgAC5CUpSt4TcPrWfnL-PQQ",
         "3-qism": "BQACAgIAAxkBAAJ4xGrMXx7eVRVq_tFN6Vunin_vg5ZcAAIWrgACz9BgSmwgjBcgCS0WPQQ",
-        "4-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
+        "4-qism": "BQACAgIAAxkBAAJ87mrVqRNXfykjif-18YtuC-KzCUV5AAIG1gACnQaoSgFp-hPg_eKdPQQ",
     },
-"Yarim Tun komikslari": {
+"Yarim Tun komikslari💎": {
      "Komiksni o'qish": {
          "rasm": "AgACAgIAAxkBAAKChmrpaxrNkJsbszzxAAGE3dgclrHHLgAC_x5rG-5nUEvdLxTTX_e9AAEBAAMCAAN3AAM9BA",
          "matn": "🔒 Ushbu komikslar premium kanalda!",
-         "link": "https://t.me/tapsuzbot/app?startapp=5b5c7238", },}, }
+         "link": "https://t.me/tapsuzbot/app?startapp=5b5c7238", },}, 
+"Marvel Comics 1939💎": {
+     "Komiksni o'qish": {
+         "rasm": "AgACAgIAAxkBAAKCnWrpcZmb8Ca-vg9m5rJBRSx03Wf1AAIaH2sb7mdQS3-qOdSkgpSyAQADAgADeQADPQQ",
+         "matn": "🔒 Ushbu komiks premium kanalda!",
+         "link": "https://t.me/tapsuzbot/app?startapp=5b5c7238", },},
+}
 
 SAHIFA_HAJMI = 5
 
