@@ -357,6 +357,11 @@ async def sahifa_almashtirish(callback: types.CallbackQuery):
     try:
         await callback.message.edit_text("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(sahifa))
     except:
+        # Rasm/video xabarini matnga aylantirib bo'lmaydi: o'chirib, o'rniga ro'yxat
+        try:
+            await callback.message.delete()
+        except:
+            pass
         await callback.message.answer("📚 Qaysi komiksni o'qimoqchisiz?", reply_markup=seriya_menyusi(sahifa))
     await callback.answer()
 
