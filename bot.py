@@ -198,9 +198,10 @@ def obuna_tugmasi(kod: str | None = None) -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="✅ Obunani tekshirish", callback_data=tekshir_data)]
     ])
 
-def qaytish_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
+def qaytish_tugmasi(seriya_nomi: str, sahifa: int = 0) -> InlineKeyboardMarkup:
+    # Shu komiksning qismlar ro'yxatiga qaytaradi
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"sahifa:{sahifa}")]
+        [InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"seriya:{seriya_nomi}:{sahifa}")]
     ])
 
 def boshqa_komikslar_tugmasi(sahifa: int = 0) -> InlineKeyboardMarkup:
@@ -217,7 +218,7 @@ async def qismni_yuborish(message: types.Message, seriya_nomi: str, qism: str, s
         await message.answer(
             f"⏳ *{seriya_nomi} {qism}* hali tarjima qilinmoqda.\n\nTez orada tayyor bo'ladi!",
             parse_mode="Markdown",
-            reply_markup=qaytish_tugmasi(sahifa)
+            reply_markup=qaytish_tugmasi(seriya_nomi, sahifa)
         )
         return
 
@@ -228,8 +229,8 @@ async def qismni_yuborish(message: types.Message, seriya_nomi: str, qism: str, s
         tugmalar = []
         if link:
             tugmalar.append([InlineKeyboardButton(text="💎 Premium kanalga o'tish", url=link)])
-        tugmalar.append([InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"sahifa:{sahifa}")])
-        markup = InlineKeyboardMarkup(inline_keyboard=tugmalar)
+        tugmalar.append([InlineKeyboardButton(text="📋 Ro'yxatga qaytish", callback_data=f"seriya:{seriya_nomi}:{sahifa}")])
+        markup =InlineKeyboardMarkup(inline_keyboard=tugmalar)
 
         if mazmun.get("video"):
             await message.answer_video(mazmun["video"], caption=matn, reply_markup=markup, protect_content=True)
@@ -244,7 +245,7 @@ async def qismni_yuborish(message: types.Message, seriya_nomi: str, qism: str, s
     if deeplink:
         await message.answer("👆 Komiks tayyor!", reply_markup=boshqa_komikslar_tugmasi(sahifa))
     else:
-        await message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi(sahifa))
+        await message.answer("👇 Ro'yxatga qaytish:", reply_markup=qaytish_tugmasi(seriya_nomi, sahifa))
 
 async def komiksni_yuborish(message: types.Message, kod: str) -> bool:
     """Deep-link kodi bo'yicha kerakli qismni yuboradi. Kod haqiqiy bo'lsa True qaytaradi."""
@@ -376,7 +377,16 @@ async def seriya_tanlash(callback: types.CallbackQuery):
     parts = callback.data.split("seriya:")[1].rsplit(":", 1)
     seriya_nomi = parts[0]
     sahifa = int(parts[1]) if len(parts) > 1 else 0
-    await callback.message.edit_text(f"📖 *{seriya_nomi}* — qismni tanlang:", parse_mode="Markdown", reply_markup=qismlar_menyusi(seriya_nomi, sahifa))
+    matn = f"📖 *{seriya_nomi}* — qismni tanlang:"
+    try:
+        await callback.message.edit_text(matn, parse_mode="Markdown", reply_markup=qismlar_menyusi(seriya_nomi, sahifa))
+    except:
+        # Poster (rasm/video) xabarini matnga aylantirib bo'lmaydi: o'chirib, o'rniga menyu
+        try:
+            await callback.message.delete()
+        except:
+            pass
+        await callback.message.answer(matn, parse_mode="Markdown", reply_markup=qismlar_menyusi(seriya_nomi, sahifa))
     await callback.answer()
 
 @dp.callback_query(F.data.startswith("qism:"))
@@ -389,7 +399,15 @@ async def qism_yuborish(callback: types.CallbackQuery):
     seriya_qism = parts[0]
     sahifa = int(parts[1]) if len(parts) > 1 else 0
     seriya_nomi, qism = seriya_qism.split("|", 1)
+    mazmun = KOMIKSLAR.get(seriya_nomi, {}).get(qism)
     await qismni_yuborish(callback.message, seriya_nomi, qism, sahifa)
+    # Komiks (PDF yoki poster) yuborilgach, qism tanlash menyusi o'chiriladi.
+    # "Hali tarjima qilinmoqda" bo'lsa menyu qoladi.
+    if mazmun is not None:
+        try:
+            await callback.message.delete()
+        except:
+            pass
     await callback.answer()
 
 # --- Faqat admin uchun: fayl ID olish (PDF, rasm, video) ---
