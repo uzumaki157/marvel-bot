@@ -86,6 +86,8 @@ KOMIKSLAR = {
         "2-qism": "BQACAgIAAxkBAAJzQGrFEz7BEpUBX86LJ2fYuHu5Zuz_AAJBpgAC5CUpSt4TcPrWfnL-PQQ",
         "3-qism": "BQACAgIAAxkBAAJ4xGrMXx7eVRVq_tFN6Vunin_vg5ZcAAIWrgACz9BgSmwgjBcgCS0WPQQ",
         "4-qism": "BQACAgIAAxkBAAJ87mrVqRNXfykjif-18YtuC-KzCUV5AAIG1gACnQaoSgFp-hPg_eKdPQQ",
+ "5-qism": "BQACAgIAAxkBAAKDKWrrHkaOHtlH5fdR98fxkC4_8EY5AAKBsAACGmJZS81z1d52i63jPQQ",
+
     },
 "Yarim Tun komikslari💎": {
      "Komiksni o'qish": {
