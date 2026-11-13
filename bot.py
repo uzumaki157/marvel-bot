@@ -77,6 +77,7 @@ KOMIKSLAR = {
         "3-qism": "BQACAgIAAxkBAAJbHWq2XZQMH6lKtr1ukj6qXxEub_52AALbsQAC3WKxSbSim79EyOkQPQQ",
         "4-qism": "BQACAgIAAxkBAAJ12WrIiBkBDMzDfbNyoT8Jo2acZ146AAJepwACINpISr4UWcJgzP4YPQQ",
         "5-qism": "BQACAgIAAxkBAAJ_f2re-UaB4Wu2nKa6ss6A_pNhtRx2AAJnpwACYpj5SvatuvVaIJgQPQQ",
+"6-qism": "BQACAgIAAxkBAAKONWr3Hq05LZlmHq0e5Lobgl_3VVkjAAK-qQACF2mwS1vf_7qYEnyWPQQ",
     },
     "Yuksak O'rgimchak-Odam": {
         "1-qism": "BQACAgIAAxkBAAJURWqo1aHc-ENXg2J6_sVKK2g2dqh0AAIemwACmyJJSXvAM-nDS6wEPQQ",
